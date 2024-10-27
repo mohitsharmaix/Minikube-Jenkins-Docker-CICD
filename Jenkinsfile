@@ -9,7 +9,9 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    sh 'docker build -t $DOCKER_REGISTRY/$IMAGE_NAME:${env.BUILD_ID} .'
+                    sh '''#!/bin/bash
+                    docker build -t $DOCKER_REGISTRY/$IMAGE_NAME:${BUILD_ID} .
+                    '''
                 }
             }
         }
@@ -17,7 +19,9 @@ pipeline {
             steps {
                 script {
                     // Push Docker image to registry
-                    sh 'docker push $DOCKER_REGISTRY/$IMAGE_NAME:${env.BUILD_ID}'
+                    sh '''#!/bin/bash
+                    docker push $DOCKER_REGISTRY/$IMAGE_NAME:${BUILD_ID}
+                    '''
                 }
             }
         }
