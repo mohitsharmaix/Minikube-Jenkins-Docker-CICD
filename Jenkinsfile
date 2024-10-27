@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_REGISTRY = "your-docker-registry"
-        IMAGE_NAME = "your-application-image"
+        DOCKER_REGISTRY = "mohitsharma552"
+        IMAGE_NAME = "Minikube-Jenkins-Docker"
     }
     stages {
         stage('Build') {
