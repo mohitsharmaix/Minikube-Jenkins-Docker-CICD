@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: my-npm-app
-        image: mohitsharma552/your-application-image:latest
+        image: mohitsharma552/Minikube-Jenkins-Docker:latest
         ports:
-        - containerPort: 80
+        - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
@@ -28,5 +28,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 3000
   type: LoadBalancer
