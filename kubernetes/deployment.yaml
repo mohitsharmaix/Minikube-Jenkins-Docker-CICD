@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-npm-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-npm-app
+  template:
+    metadata:
+      labels:
+        app: my-npm-app
+    spec:
+      containers:
+      - name: my-npm-app
+        image: your-docker-registry/your-application-image:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-npm-app-service
+spec:
+  selector:
+    app: my-npm-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
