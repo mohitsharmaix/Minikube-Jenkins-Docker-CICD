@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-npm-app
-        image: your-docker-registry/your-application-image:latest
+        image: mohitsharma552/your-application-image:latest
         ports:
         - containerPort: 80
 ---
